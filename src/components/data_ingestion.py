@@ -9,11 +9,14 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
  
-from src.components.data_transformation import DataTransformation
 from src.components.data_transformation import DataTransformationconfig
+from src.components.data_transformation import DataTransformation
 
 from src.components.model_trainer import ModelTrainerConfig
 from src.components.model_trainer import ModelTrainer
+
+from src.components.model_trainer_hyperparameter import ModelTrainerHyperparameterConfig
+from src.components.model_trainer_hyperparameter import ModelTrainerHyperparameter
 
  
 @dataclass
@@ -62,6 +65,11 @@ if __name__=="__main__":
 
     modeltrainer=ModelTrainer()
     print(modeltrainer.initiate_model_trainer(train_arr, test_arr))
+
+    modeltrainer=ModelTrainerHyperparameter()
+    print(modeltrainer.initiate_model_trainer(train_arr, test_arr))
+
+
 
 
 
