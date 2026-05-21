@@ -1,81 +1,33 @@
 {
-  "taskDefinitionArn": "arn:aws:ecs:eu-north-1:174772361239:task-definition/studentperformance-task:1",
+  "family": "studentperformance-task",
   "containerDefinitions": [
     {
       "name": "studentperformance-container",
       "image": "nginx:latest",
       "cpu": 0,
+      "essential": true,
       "portMappings": [
         {
           "containerPort": 5000,
           "hostPort": 5000,
-          "protocol": "tcp",
-          "name": "studentperformance-container-5000-tcp",
-          "appProtocol": "http"
+          "protocol": "tcp"
         }
       ],
-      "essential": true,
-      "environment": [],
-      "environmentFiles": [],
-      "mountPoints": [],
-      "volumesFrom": [],
-      "ulimits": [],
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
           "awslogs-group": "/ecs/studentperformance-task",
-          "awslogs-create-group": "true",
           "awslogs-region": "eu-north-1",
           "awslogs-stream-prefix": "ecs"
-        },
-        "secretOptions": []
-      },
-      "systemControls": []
+        }
+      }
     }
   ],
-  "family": "studentperformance-task",
   "executionRoleArn": "arn:aws:iam::174772361239:role/ecsTaskExecutionRole",
   "networkMode": "awsvpc",
-  "revision": 1,
-  "volumes": [],
-  "status": "ACTIVE",
-  "requiresAttributes": [
-    {
-      "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-    },
-    {
-      "name": "ecs.capability.execution-role-awslogs"
-    },
-    {
-      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-    },
-    {
-      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-    },
-    {
-      "name": "ecs.capability.task-eni"
-    },
-    {
-      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
-    }
-  ],
-  "placementConstraints": [],
-  "compatibilities": [
-    "EC2",
-    "FARGATE",
-    "MANAGED_INSTANCES"
-  ],
-  "runtimePlatform": {
-    "cpuArchitecture": "X86_64",
-    "operatingSystemFamily": "LINUX"
-  },
   "requiresCompatibilities": [
     "FARGATE"
   ],
   "cpu": "1024",
-  "memory": "2048",
-  "registeredAt": "2026-05-21T03:34:27.733Z",
-  "registeredBy": "arn:aws:iam::174772361239:root",
-  "enableFaultInjection": false,
-  "tags": []
+  "memory": "2048"
 }
